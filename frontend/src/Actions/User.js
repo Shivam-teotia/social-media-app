@@ -4,7 +4,7 @@ export const loginUser = (email, password) => async (dispatch) => {
     dispatch({
       type: "LoginRequest",
     });
-    const { data } = await axios.post("/login", { email, password });
+    const { data } = await axios.post("/api/teotia/login", { email, password });
     dispatch({ type: "LoginSuccess", payload: data.user });
   } catch (error) {
     dispatch({
@@ -19,7 +19,7 @@ export const logoutUser = () => async (dispatch) => {
     dispatch({
       type: "LogoutUserRequest",
     });
-    await axios.get("/logout");
+    await axios.get("/api/teotia/logout");
     dispatch({ type: "LogoutUserSuccess" });
   } catch (error) {
     dispatch({
@@ -34,7 +34,7 @@ export const loadUser = () => async (dispatch) => {
     dispatch({
       type: "LoadRequestUser",
     });
-    const { data } = await axios.get("/me");
+    const { data } = await axios.get("/api/teotia/me");
     dispatch({ type: "LoadUserSuccess", payload: data.user });
   } catch (error) {
     dispatch({
@@ -48,7 +48,7 @@ export const getFollowingPosts = () => async (dispatch) => {
     dispatch({
       type: "postOfFollwingRequest",
     });
-    const { data } = await axios.get("/posts");
+    const { data } = await axios.get("/api/teotia/posts");
     dispatch({
       type: "postOfFollwingSuccess",
       payload: data.posts,
@@ -69,7 +69,7 @@ export const getAllUsers =
         type: "allUserRequest",
       });
 
-      const { data } = await axios.get(`/users?name=${name}`);
+      const { data } = await axios.get(`/api/teotia/users?name=${name}`);
       dispatch({
         type: "allUserSuccess",
         payload: data.users,
@@ -87,7 +87,7 @@ export const getMyPosts = () => async (dispatch) => {
     dispatch({
       type: "myPostsRequest",
     });
-    const { data } = await axios.get("/me/posts");
+    const { data } = await axios.get("/api/teotia/me/posts");
     dispatch({
       type: "myPostsSuccess",
       payload: data.posts,
@@ -106,7 +106,7 @@ export const registerUser =
       dispatch({
         type: "RegisterRequest",
       });
-      const { data } = await axios.post("/register", {
+      const { data } = await axios.post("/api/teotia/register", {
         name,
         email,
         password,
@@ -126,7 +126,7 @@ export const updateProfileUser = (name, email, avatar) => async (dispatch) => {
     dispatch({
       type: "updateProfileRequest",
     });
-    const { data } = await axios.put("/update/profile", {
+    const { data } = await axios.put("/api/teotia/update/profile", {
       name,
       email,
       avatar,
@@ -146,7 +146,7 @@ export const updatePassword =
       dispatch({
         type: "updatePasswordRequest",
       });
-      const { data } = await axios.put("/update/password", {
+      const { data } = await axios.put("/api/teotia/update/password", {
         oldPassword,
         newPassword,
       });
@@ -164,7 +164,7 @@ export const deleteMyProfile = () => async (dispatch) => {
     dispatch({
       type: "deleteProfileRequest",
     });
-    const { data } = await axios.delete("/delete/me", {});
+    const { data } = await axios.delete("/api/teotia/delete/me", {});
     dispatch({ type: "deleteProfileSuccess", payload: data.message });
   } catch (error) {
     dispatch({
@@ -179,7 +179,7 @@ export const forgotPassword = (email) => async (dispatch) => {
     dispatch({
       type: "forgotPasswordRequest",
     });
-    const { data } = await axios.post("/forgot/password", { email });
+    const { data } = await axios.post("/api/teotia/forgot/password", { email });
     dispatch({ type: "forgotPasswordSuccess", payload: data.message });
   } catch (error) {
     dispatch({
@@ -194,7 +194,9 @@ export const resetPassword = (token, password) => async (dispatch) => {
     dispatch({
       type: "resetPasswordRequest",
     });
-    const { data } = await axios.put(`/password/reset/${token}`, { password });
+    const { data } = await axios.put(`/api/teotia/password/reset/${token}`, {
+      password,
+    });
     dispatch({ type: "resetPasswordSuccess", payload: data.message });
   } catch (error) {
     dispatch({
@@ -209,7 +211,7 @@ export const getUserPosts = (id) => async (dispatch) => {
     dispatch({
       type: "userPostsRequest",
     });
-    const { data } = await axios.get(`/userposts/${id}`);
+    const { data } = await axios.get(`/api/teotia/userposts/${id}`);
     dispatch({
       type: "userPostsSuccess",
       payload: data.posts,
@@ -227,7 +229,7 @@ export const getUserProfile = (id) => async (dispatch) => {
     dispatch({
       type: "userProfileRequest",
     });
-    const { data } = await axios.get(`/user/${id}`);
+    const { data } = await axios.get(`/api/teotia/user/${id}`);
     dispatch({
       type: "userProfileSuccess",
       payload: data.user,
@@ -245,7 +247,7 @@ export const followAndUnfollowUser = (id) => async (dispatch) => {
     dispatch({
       type: "followUserRequest",
     });
-    const { data } = await axios.get(`/follow/${id}`);
+    const { data } = await axios.get(`/api/teotia/follow/${id}`);
     dispatch({
       type: "followUserSuccess",
       payload: data.message,
