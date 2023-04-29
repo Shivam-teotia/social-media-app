@@ -1,0 +1,21 @@
+.commentUser{
+    display: flex;
+    padding: 1vmax 1vmax;
+    justify-content: space-between;
+    align-items: center;
+}
+.commentUser > a{
+    text-decoration: none;
+    display: flex;
+    gap: 1vmax;
+    align-items: center;
+    transition: all 0.5s;
+}
+.commentUser > a:hover{
+    transform: translateY(-5px);
+}
+.commentUser >a>img{
+    width: 4vmax;
+    height: 4vmax;
+    border-radius: 50%;
+}

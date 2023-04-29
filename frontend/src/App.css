@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px white;
+    background-color: white;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(150, 136, 98, 0.966);
+    border-radius: 10px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');

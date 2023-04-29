@@ -1,0 +1,57 @@
+.post{
+    width: 70%;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 0 1vmax 2vmax;
+    margin: 2vmax;
+}
+.postHeader{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 1vmax;
+}
+.postHeader > button{
+    border-radius: 100%;
+    color: rgba(0,0,0,0.582);
+}
+.post > img{
+    width: 100%;
+}
+.postDetails{
+    display: flex;
+    align-items: center;
+    padding: 1vmax;
+}
+.postDetails > a{
+    text-decoration: none;
+    color: rgba(0,0,0);
+    margin: 0 1vmax;
+}
+.postFooter>button{
+    transition: all 0.5s !important;
+}
+.postFooter>button:hover{
+    transform:scale(1.1);
+}
+.postFooter > button >svg{
+    color:rgba(241, 14, 14, 0.726)
+}
+.DialogBox{
+    min-width: 400px;
+    height: 70vh;
+    padding: 2vmax;
+}
+.commentForm{
+    padding: 0.5vmax 0.5vmax;
+    display: flex;
+    gap: 1vmax;
+}
+.commentForm > input{
+    width: 75%;
+    outline: none;
+    font-size: 1.4vmax;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 0.5vmax;
+}
